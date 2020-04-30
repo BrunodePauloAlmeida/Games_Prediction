@@ -13,11 +13,22 @@ scrape_esportspedia <- function(url) {
   
   names(tab) = tab[2,]
   
-  tab = tab[-which(!is.na(str_extract(tab[,1], "showhide"))),]
+  etapa = str_extract(tab[,1], "(?<=\\[showhide\\]).*")
   
-  tab = tab[-which(!is.na(str_extract(tab[,1], "Team 1"))),]
+  for(i in 2:length(etapa)) {
+    if(is.na(etapa[i])) {
+      etapa[i] = etapa[i-1]
+    }
+  }
   
-  tab[,1:3] %>%
+  deletar = sort(c(which(!is.na(str_extract(tab[,1], "showhide"))), which(!is.na(str_extract(tab[,1], "Team 1")))))
+  
+  etapa = etapa[-deletar]
+  tab = tab[-deletar,]
+  
+  tab$Etapa = etapa
+  
+  tab[,c(1:3, ncol(tab))] %>%
     distinct(.keep_all = TRUE)
   
 }
