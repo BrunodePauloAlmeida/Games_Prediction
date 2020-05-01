@@ -68,7 +68,7 @@ ljl_playoffs = scrape_esportspedia("https://lol.gamepedia.com/LJL/2020_Season/Sp
 write.table(ljl_fasedegrupos, file = "2020/LJL_fg.csv", sep = ";", na = "", row.names = FALSE)
 write.table(ljl_playoffs, file = "2020/LJL_po.csv", sep = ";", na = "", row.names = FALSE)
 
-lla_fasedegrupos = scrape_esportspedia("https://lol.gamepedia.com/LLA/2020_Season/Opening_Playoffs")
+lla_fasedegrupos = scrape_esportspedia("https://lol.gamepedia.com/LLA/2020_Season/Opening_Season")
 lla_playoffs = scrape_esportspedia("https://lol.gamepedia.com/LLA/2020_Season/Opening_Playoffs")
 write.table(lla_fasedegrupos, file = "2020/LLA_fg.csv", sep = ";", na = "", row.names = FALSE)
 write.table(lla_playoffs, file = "2020/LLA_po.csv", sep = ";", na = "", row.names = FALSE)
