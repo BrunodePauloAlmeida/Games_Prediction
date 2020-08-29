@@ -36,7 +36,8 @@ scrape_esportspedia <- function(url) {
 
 lck_fasedegrupos = scrape_esportspedia("https://lol.gamepedia.com/LCK/2020_Season/Summer_Season")
 lck_playoffs = scrape_esportspedia("https://lol.gamepedia.com/LCK/2020_Season/Summer_Playoffs")
-lck_fasedegrupos
+lck_regionalqualifiers = scrape_esportspedia("https://lol.gamepedia.com/LCK/2020_Season/Regional_Finals")
+lck_playoffs = rbind(lck_playoffs, lck_regionalqualifiers)
 write.table(lck_fasedegrupos, file = "2020_2/LCK_fg.csv", sep = ";", na = "", row.names = FALSE)
 write.table(lck_playoffs, file = "2020_2/LCK_po.csv", sep = ";", na = "", row.names = FALSE)
 
@@ -57,6 +58,8 @@ write.table(lec_playoffs, file = "2020_2/LEC_po.csv", sep = ";", na = "", row.na
   
 lpl_fasedegrupos = scrape_esportspedia("https://lol.gamepedia.com/LPL/2020_Season/Summer_Season")
 lpl_playoffs = scrape_esportspedia("https://lol.gamepedia.com/LPL/2020_Season/Summer_Playoffs")
+lpl_regionalqualifiers = scrape_esportspedia("https://lol.gamepedia.com/LPL/2020_Season/Regional_Finals")
+lpl_playoffs = rbind(lpl_playoffs, lpl_regionalqualifiers)
 write.table(lpl_fasedegrupos, file = "2020_2/LPL_fg.csv", sep = ";", na = "", row.names = FALSE)
 write.table(lpl_playoffs, file = "2020_2/LPL_po.csv", sep = ";", na = "", row.names = FALSE)
   
